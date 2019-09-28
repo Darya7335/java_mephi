@@ -8,14 +8,18 @@ public class ManualMode {
     private String args[];
 
     public void GetHash(String args[]) {
-	if (!(args[1].equals("-f"))){
-		      System.out.println("input error, try again");
-		  }
+        if (!(args[1].equals("-f"))) {
+            System.out.println("input error, try again");
+        }
+
         System.out.println("<you chose manual mode>");
+
         try {
             switch (args[0]) {
                 case "-md5":
-                    System.out.println("File checksum md5:  " + DigestUtils.md5Hex(new FileInputStream(args[2])));
+                    for (int i = 2; i < args.length; i++) {
+                        System.out.println("File checksum md5:  " + DigestUtils.md5Hex(new FileInputStream(args[i])));
+                    }
                     break;
 
                 case "-sha256":

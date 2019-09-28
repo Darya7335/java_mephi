@@ -1,0 +1,20 @@
+#!/bin/bash
+
+javac -sourcepath src -d bin -classpath ./commons-codec-1.13.jar src/Main.java src/ManualMode.java src/InteractiveMode.java
+
+java -classpath bin:./commons-codec-1.13.jar Main
+
+mkdir lib
+
+cd lib
+
+jar -xvf ../commons-codec-1.13.jar org/
+
+cd ..
+
+cp -r bin/* lib/
+
+jar -cef Main Checksum.jar  -C lib .
+
+rm -r lib
+

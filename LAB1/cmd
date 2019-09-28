@@ -1,0 +1,16 @@
+java -jar Checksum.jar -i
+java -jar Checksum.jar -md5 -f /home/darya/Документы/doc
+
+
+JAR:
+
+cd lib
+jar -xvf commons-codec-1.13.jar.jar org/
+cd ..
+cp  -r bin/* lib/
+jar -cef .bin/Main checkSum.jar -C lib .
+rm -r lib
+
+chmod +x ./ForJar
+./ForJar.sh
+
